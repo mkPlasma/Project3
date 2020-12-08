@@ -20,9 +20,9 @@ public class CCSweepAndPrune extends CollisionChecker{
 		xIntervals = new ArrayList<ColliderInterval>();
 	}
 
-	public int numColliders = 0;
+	private int numColliders = 0;
 
-	public ArrayList<ColliderInterval> xIntervals;
+	private ArrayList<ColliderInterval> xIntervals;
 
 	public ArrayList<Collision> checkCollisions(){
 
@@ -76,7 +76,7 @@ public class CCSweepAndPrune extends CollisionChecker{
 				
 				for(ColliderInterval CI : xMinsFound){
 					Collision newCollision = new Collision(curInt.collider, CI.collider);
-					if (curInt != CI && newCollision.collider1.getAABB().isOverlapping(newCollision.collider2.getAABB())){
+					if (curInt != CI && newCollision.collider1.getAABB().isOverlappingY(newCollision.collider2.getAABB())){
 						collisions.add(newCollision);
 					}
 				}
@@ -94,7 +94,7 @@ public class CCSweepAndPrune extends CollisionChecker{
 		return  collisions;
 	}
 
-	public void InsertionSort(ArrayList<ColliderInterval> intervalList){
+	private void InsertionSort(ArrayList<ColliderInterval> intervalList){
 		for (int i = 1; i < intervalList.size(); i++){
 			ColliderInterval key = intervalList.get(i);
 			int j = i - 1;
@@ -104,5 +104,9 @@ public class CCSweepAndPrune extends CollisionChecker{
 			}
 			intervalList.set(j + 1, key);
 		}
+	}
+	
+	public ArrayList<ColliderInterval> getIntervals(){
+		return xIntervals;
 	}
 }

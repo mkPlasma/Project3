@@ -2,6 +2,14 @@ package main;
 
 import java.util.Objects;
 
+/**
+ * ColliderInterval.java
+ * 
+ * Collider interval for sweep and prune algorithm.
+ * 
+ * @author Lucas
+ *
+ */
 public class ColliderInterval {
     float interval;
     Collider collider;

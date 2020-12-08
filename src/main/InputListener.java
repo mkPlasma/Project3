@@ -28,7 +28,7 @@ public class InputListener implements KeyListener, MouseListener, MouseMotionLis
 	private static int mouseScroll;
 	
 	public InputListener(){
-		keys = new boolean[6];
+		keys = new boolean[7];
 	}
 	
 	public static boolean isKeyTyped(int i){
@@ -87,8 +87,12 @@ public class InputListener implements KeyListener, MouseListener, MouseMotionLis
 			keys[4] = true;
 			return;
 			
-		case 'r': case 'R':
+		case 'd': case 'D':
 			keys[5] = true;
+			return;
+			
+		case 'r': case 'R':
+			keys[6] = true;
 			return;
 		}
 	}

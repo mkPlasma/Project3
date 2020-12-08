@@ -22,4 +22,11 @@ public class AABB{
 		
 		return true;
 	}
+	
+	public boolean isOverlappingY(AABB aabb){
+		if(lowerBoundY > aabb.upperBoundY || aabb.lowerBoundY > upperBoundY)
+			return false;
+		
+		return true;
+	}
 }

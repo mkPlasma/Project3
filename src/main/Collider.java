@@ -17,6 +17,8 @@ public class Collider{
 	
 	private AABB aabb;
 	
+	private boolean collided;
+	
 	
 	public Collider(float x, float y, float size, float velX, float velY){
 		this.x = x;
@@ -26,6 +28,8 @@ public class Collider{
 		this.velY = velY;
 		
 		aabb = new AABB();
+		
+		updateAABB();
 	}
 	
 	public void update(){
@@ -34,6 +38,14 @@ public class Collider{
 		x += velX;
 		y += velY;
 		
+		updateAABB();
+		
+		// Reset collided bool
+		collided = false;
+	}
+	
+	private void updateAABB(){
+
 		// Update AABB
 		aabb.lowerBoundX = x - (size / 2);
 		aabb.lowerBoundY = y - (size / 2);
@@ -81,5 +93,13 @@ public class Collider{
 	
 	public AABB getAABB(){
 		return aabb;
+	}
+	
+	public void setCollided(){
+		collided = true;
+	}
+	
+	public boolean collided(){
+		return collided;
 	}
 }
