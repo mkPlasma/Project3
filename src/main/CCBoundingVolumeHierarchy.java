@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * 
  * Bounding volume hierarchy collision checking algorithm.
  * 
- * @author 
+ * @author Jared
  *
  */
 public class CCBoundingVolumeHierarchy extends CollisionChecker{
